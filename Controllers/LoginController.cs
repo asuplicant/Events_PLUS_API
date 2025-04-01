@@ -43,7 +43,8 @@ namespace Projeto_Event_Plus.Controllers
                 {
                     new Claim(JwtRegisteredClaimNames.Jti,usuarioBuscado.IdUsuario.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email,usuarioBuscado.Email!),
-                    new Claim("Tipo do usuário", usuarioBuscado.TiposUsuario!.TituloTipoUsuario!),
+                    new Claim("Tipo Do Usuário", usuarioBuscado.IdTipoUsuario!.ToString()!),
+
 
                     //podemos definir uma claim personalizada
                     new Claim("Nome da Claim","Valor da Claim")
