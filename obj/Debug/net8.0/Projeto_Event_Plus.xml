@@ -226,16 +226,16 @@
             Rerencia as demais tabelas
             </summary>
         </member>
-        <member name="T:Projeto_Event_Plus.Migrations.Db_EventPlus">
+        <member name="T:Projeto_Event_Plus.Migrations.Db_EventsPLUS">
             <inheritdoc />
         </member>
-        <member name="M:Projeto_Event_Plus.Migrations.Db_EventPlus.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:Projeto_Event_Plus.Migrations.Db_EventsPLUS.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:Projeto_Event_Plus.Migrations.Db_EventPlus.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:Projeto_Event_Plus.Migrations.Db_EventsPLUS.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:Projeto_Event_Plus.Migrations.Db_EventPlus.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:Projeto_Event_Plus.Migrations.Db_EventsPLUS.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

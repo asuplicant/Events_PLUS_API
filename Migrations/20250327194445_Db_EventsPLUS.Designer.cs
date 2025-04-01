@@ -12,8 +12,8 @@ using Projeto_Event_Plus.Context;
 namespace Projeto_Event_Plus.Migrations
 {
     [DbContext(typeof(EventPlus_Context))]
-    [Migration("20250327191915_Db_EventPlus")]
-    partial class Db_EventPlus
+    [Migration("20250327194445_Db_EventsPLUS")]
+    partial class Db_EventsPLUS
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Projeto_Event_Plus.Migrations
 {
     /// <inheritdoc />
-    public partial class Db_EventPlus : Migration
+    public partial class Db_EventsPLUS : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
