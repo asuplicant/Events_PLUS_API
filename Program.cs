@@ -12,10 +12,15 @@ using Projeto_Event_Plus.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configuração do Azure Content Safety.
-var endpoint = "https://moderatorservicelaura.cognitiveservices.azure.com/";
-var apiKey = "DWq7MWkbf34hJdem9r7RatKwj21oHCLKnjQ8pt4N8SJaAWATEWBrJQQJ99BDACYeBjFXJ3w3AAAHACOGKcUY";
+var endpoint = builder.Configuration["AzureContentSafety.Endpoint"];
+var apiKey = builder.Configuration["AzureContentSafety.ApiKey"];
 
-var client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(apiKey)); 
+if(string.IsNullOrEmpty(endpoint) || string.IsNullOrEmpty(apiKey))
+    {
+    throw new InvalidOperationException("Azure Content Safety: Endpoint ou API Key não foram configurados.");
+    }
+
+var client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
 builder.Services.AddSingleton(client);
 
 builder.Services // Acessa a coleção de serviços da aplicação (Dependency Injection)
