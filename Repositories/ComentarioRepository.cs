@@ -13,6 +13,8 @@ namespace Projeto_Event_Plus.Repositories
             _context = context;
         }
 
+        //-----------------------------------------------------
+        // Cadastrar Comentário
         public void Cadastrar(ComentarioEvento comentarioEvento)
         {
             try
@@ -27,6 +29,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //-----------------------------------------------------
+        // Deletar Comentário
         public void Deletar(Guid id)
         {
             try
@@ -46,6 +50,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //-----------------------------------------------------
+        // Buscar Por Id Usuario 
         ComentarioEvento IComentarioRepository.BuscarPorIdUsuario(Guid idUsuario, Guid idEvento)
         {
             try
@@ -77,6 +83,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //-----------------------------------------------------
+        // Listar Comentário Eventos
         List<ComentarioEvento> IComentarioRepository.Listar(Guid id)
         {
             try
@@ -109,6 +117,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //-----------------------------------------------------
+        // Listar Somente Exibess
         public List<ComentarioEvento> ListarSomenteExibe(Guid id)
         {
             try

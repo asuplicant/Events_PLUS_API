@@ -16,11 +16,8 @@ namespace Projeto_Event_Plus.Controllers
             _usuarioRepository = usuarioRepository;
         }
 
-        /// <summary>
-        /// Endpoint  para Listar Todos os Usuario Presentes no Banco de Dados
-        /// </summary>
-        /// <param name=""></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Listar Usuario
         [HttpGet]
         public IActionResult Get()
         {
@@ -36,11 +33,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Adicionar Usuario no Banco de Dados
-        /// </summary>
-        /// <param name="novoUsuario"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Cadastrar Usuario
         [HttpPost]
         public ActionResult Post(Usuario novoUsuario)
         {
@@ -57,11 +51,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Buscar Usuario um Pelo ID no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Buscar Por ID
         [HttpGet("BuscarPorId/{id}")]
         public IActionResult Get(Guid id)
         {
@@ -78,11 +69,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Buscar Usuario por Email e Senha no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Buscar Por Email E Senha
         [HttpGet("BuscarPorEmailESenha")]
         public IActionResult Get([FromQuery] string Email, [FromQuery] string Senha)
         {

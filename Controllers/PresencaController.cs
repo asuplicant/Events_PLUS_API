@@ -16,11 +16,9 @@ namespace Projeto_Event_Plus.Controllers
             _presencaEventosRepository = presencaEventosRepository;
         }
 
-        /// <summary>
-        /// Endpoint  para Increver-se Num Evento no Banco de Dados
-        /// </summary>
-        /// <param name="evento"></param>
-        /// <returns></returns>
+
+        //-----------------------------------------------------
+        // Cadastrar Presenca Evento
         [HttpPost]
         public IActionResult Post(PresencaEvento evento)
         {
@@ -36,11 +34,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Listar Eventos Incritos no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Listar Presenca Evento
         [HttpGet]
         public IActionResult Get()
         {
@@ -56,11 +51,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Listar Eventos Incritos no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Deletar Presenca Evento
         [HttpDelete]
         public IActionResult Deletar(Guid id)
         {
@@ -77,11 +69,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Atualizar Presença Incrita no Banco de Dados
-        /// </summary>
-        /// <param name="presencaEvento"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Atualizar Presenca Evento
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, PresencaEvento presencaEvento)
         {
@@ -97,11 +86,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para BuscarPresencaPorId no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Buscar Por ID
         [HttpGet("BuscarPorId/{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -118,11 +104,8 @@ namespace Projeto_Event_Plus.Controllers
 
         }
 
-        /// <summary>
-        /// Endpoint  para Listar as Presencas de um Usuário no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Listar Minhas Presenças
         [HttpGet("ListarMinhasPresencas/{id}")]
         public IActionResult Get(Guid id)
         {

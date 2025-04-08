@@ -13,6 +13,8 @@ namespace Projeto_Event_Plus.Repositories
             _context = context;
         }
 
+        //-----------------------------------------------------
+        // Atualizars
         public void Atualizar(Guid id, PresencaEvento presencaEventos)
         {
             try
@@ -40,6 +42,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //-----------------------------------------------------
+        // Buscar Por ID
         public PresencaEvento BuscarPorID(Guid id)
         {
             try
@@ -72,6 +76,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //-----------------------------------------------------
+        // Deletar
         public void Deletar(Guid id)
         {
             try
@@ -91,6 +97,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //-----------------------------------------------------
+        // Inscrever
         public void Inscrever(PresencaEvento inscricao)
         {
             try
@@ -107,6 +115,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //-----------------------------------------------------
+        // Listar Presença Evento
         public List<PresencaEvento> Listar()
         {
             try
@@ -139,6 +149,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //-----------------------------------------------------
+        // ListarMinhas (Presenca Evento)
         public List<PresencaEvento> ListarMinhas(Guid id)
         {
             return _context.PresencaEventos

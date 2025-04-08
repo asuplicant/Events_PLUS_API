@@ -10,17 +10,14 @@ namespace Projeto_Event_Plus.Controllers
     public class EventoController : Controller
     {
         private readonly IEventoRepository _eventoRepository;
-
         public EventoController(IEventoRepository eventoRepository)
         {
             _eventoRepository = eventoRepository;
         }
 
-        /// <summary>
-        /// Endpoint  para Listar Todos os Eventos Presentes no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+
+        //-----------------------------------------------------
+        // Listar Evento
         [HttpGet]
         public IActionResult Get()
         {
@@ -36,11 +33,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Cadastar um Evento no Banco de Dados
-        /// </summary>  
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Cadastrar Evento
         [HttpPost]
         public IActionResult Post(Evento novoEvento)
         {
@@ -56,11 +50,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Deletar um Evento no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Deletar Evento
         [HttpDelete]
         public IActionResult Deletar(Guid id)
         {
@@ -76,11 +67,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Atualizar um Evento no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Atualizar Evento
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Evento Evento)
         {
@@ -96,11 +84,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para ListarPorId Varios Eventos no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Buscar Por ID
         [HttpGet("BuscarPorId/{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -117,11 +102,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  próximos Eventos no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Listar Próximos Eventos
         [HttpGet("ListarProximosEventos/{id}")]
         public IActionResult ListarProximosEventos()
         {

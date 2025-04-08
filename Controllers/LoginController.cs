@@ -19,11 +19,7 @@ namespace Projeto_Event_Plus.Controllers
             _usuarioRepository = usuarioRepository;
         }
 
-        /// <summary>
-        /// Endpoint para realizar a autenticação (Login)
-        /// </summary>
-        /// <param name="loginDTO">Email e senha do usuário</param>
-        /// <returns>Token de acesso</returns>
+        //-----------------------------------------------------
         [HttpPost]
         public IActionResult Login(LoginDTO loginDTO)
         {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using Projeto_Event_Plus.Domains;
 using Projeto_Event_Plus.Interfaces;
 
@@ -16,11 +17,9 @@ namespace Projeto_Event_Plus.Controllers
             _tipoUsuarioRepository = tipoUsuarioRepository;
         }
 
-        /// <summary>
-        /// Endpoint  para Listar Todos os TiposUsuario no Banco de Dados
-        /// </summary>
-        /// <param name=""></param>
-        /// <returns></returns>
+
+        //-----------------------------------------------------
+        // Listar Tipo Usuario
         [HttpGet]
         public IActionResult Get()
         {
@@ -36,11 +35,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Adicionar um TipoUsuario no Banco de Dados
-        /// </summary>
-        /// <param name="novoTipoUsuario"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Cadastrar Tipo Usuario
         [HttpPost]
         public IActionResult Post(TipoUsuario novoTipoUsuario)
         {
@@ -56,11 +52,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Deletar um TipoUsuario no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Deletar Tipo Usuario
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
@@ -76,11 +69,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Atualizar Um TipoUsuario Pelo Seu Id
-        /// </summary>
-        /// <param name="tipoUsuario id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Atualizar Tipo Usuario
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, TipoUsuario tipoUsuario)
         {
@@ -96,11 +86,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Buscar um TipoUsuario Pelo Seu Id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>Evento Buscado</returns>
+        //-----------------------------------------------------
+        // Buscar Por ID
         [HttpGet("BuscarPorId/{id}")]
         public IActionResult Get(Guid id)
         {

@@ -1,4 +1,6 @@
 using System.Reflection;
+using Azure;
+using Azure.AI.ContentSafety;
 using Microsoft.Azure.CognitiveServices.ContentModerator;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -8,6 +10,13 @@ using Projeto_Event_Plus.Interfaces;
 using Projeto_Event_Plus.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configuração do Azure Content Safety.
+var endpoint = "https://moderatorservicelaura.cognitiveservices.azure.com/";
+var apiKey = "DWq7MWkbf34hJdem9r7RatKwj21oHCLKnjQ8pt4N8SJaAWATEWBrJQQJ99BDACYeBjFXJ3w3AAAHACOGKcUY";
+
+var client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(apiKey)); 
+builder.Services.AddSingleton(client);
 
 builder.Services // Acessa a coleção de serviços da aplicação (Dependency Injection)
     .AddControllers() // Adiciona suporte a controladores na API (MVC ou Web API)
@@ -20,12 +29,11 @@ builder.Services // Acessa a coleção de serviços da aplicação (Dependency Inject
         options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
     });
 
-
 // Adiciona o contexto do banco de dados (exemplo com SQL Server)
 builder.Services.AddDbContext<EventPlus_Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//Adicionar o repositorio e a interface ao container da injeção de dependencia
+// Adicionar o repositorio e a interface ao container da injeção de dependencia
 builder.Services.AddScoped<ITipoEventoRepository, TipoEventoRepository>();
 builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
@@ -34,7 +42,7 @@ builder.Services.AddScoped<IComentarioRepository, ComentarioRepository>();
 builder.Services.AddScoped<IPresencaEventosRepository, PresencaEventosRepository>();
 
 
-//Adicionar o serviço de controladores
+// Adiciona o serviço de Controllers
 builder.Services.AddControllers();
 
 builder.Services.AddAuthentication(options =>
@@ -63,7 +71,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-////Swagger
+// SWAGGER
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
@@ -76,7 +84,7 @@ builder.Services.AddSwaggerGen(options =>
         TermsOfService = new Uri("https://example.com/terms"),
         Contact = new OpenApiContact
         {
-            Name = "Bryan",
+            Name = "Laura",
             Url = new Uri("https://example.com/contact")
         },
         License = new OpenApiLicense
@@ -131,13 +139,6 @@ builder.Services.AddCors(options =>
         });
 });
 
-
-
-
-
-
-
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -154,20 +155,14 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+// Aplicar o serviço cognitivo
 
-//Aplicar o serviço cognitivo
-//Habilita o serviço de moderador de conteúdo de Microsoft Azure
-builder.Services.AddSingleton(provider => new ContentModeratorClient(
-    new ApiKeyServiceClientCredentials("api key gerado no azure"))
-{
-    Endpoint = "adicionar o endpoint gerado no azure"
-});
+// Habilita o serviço de moderador de conteúdo de Microsoft Azure
 
-
-//Adiciona o Cors(política criada)
+// Adiciona o Cors(política criada)
 app.UseCors("CorsPolicy");
 
-//Adicionar o mapeamento dos controllers
+// Adicionar o mapeamento dos controllers
 app.MapControllers();
 
 app.UseAuthentication();

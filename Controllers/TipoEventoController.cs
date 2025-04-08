@@ -16,11 +16,9 @@ namespace Projeto_Event_Plus.Controllers
             _tipoEventoRepository = tipoEventoRepository;
         }
 
-        /// <summary>
-        /// Endpoint  para Listar Todos os TiposEventos no Banco de Dados
-        /// </summary>
-        /// <param name=""></param>
-        /// <returns></returns>
+
+        //-----------------------------------------------------
+        // Listar Tipo Evento
         [HttpGet]
         public IActionResult Get()
         {
@@ -36,11 +34,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Adicionar um TipoEvento no Banco de Dados
-        /// </summary>
-        /// <param name="novoTipoEvento"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Cadastrar Tipo Evento
         [HttpPost]
         public IActionResult Post(TipoEvento novoTipoEvento)
         {
@@ -56,11 +51,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Deletar um TipoEvento no Banco de Dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Deletar Tipo Evento
         [HttpDelete("{id}")]
         public IActionResult Deletar(Guid id)
         {
@@ -76,11 +68,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Atualizar Um TipoEvento Pelo Seu Id
-        /// </summary>
-        /// <param name="tipoEvento"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Atualizar Tipo Evento
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, TipoEvento tipoEvento)
         {
@@ -96,11 +85,8 @@ namespace Projeto_Event_Plus.Controllers
             }
         }
 
-        /// <summary>
-        /// Endpoint  para Buscar um TipoEvento Pelo Seu Id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        //-----------------------------------------------------
+        // Buscar Por ID
         [HttpGet("BuscarPorId/{id}")]
         public IActionResult GetById(Guid id)
         {
