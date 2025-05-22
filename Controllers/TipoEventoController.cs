@@ -10,7 +10,6 @@ namespace Projeto_Event_Plus.Controllers
     public class TipoEventoController : Controller
     {
         private readonly ITipoEventoRepository _tipoEventoRepository;
-
         public TipoEventoController(ITipoEventoRepository tipoEventoRepository)
         {
             _tipoEventoRepository = tipoEventoRepository;

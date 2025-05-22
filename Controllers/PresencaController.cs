@@ -10,12 +10,10 @@ namespace Projeto_Event_Plus.Controllers
     public class PresencaController : Controller
     {
         private readonly IPresencaEventosRepository _presencaEventosRepository;
-
         public PresencaController(IPresencaEventosRepository presencaEventosRepository)
         {
             _presencaEventosRepository = presencaEventosRepository;
         }
-
 
         //-----------------------------------------------------
         // Cadastrar Presenca Evento

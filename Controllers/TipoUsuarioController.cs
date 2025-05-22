@@ -11,7 +11,6 @@ namespace Projeto_Event_Plus.Controllers
     public class TipoUsuarioController : Controller
     {
         private readonly ITipoUsuarioRepository _tipoUsuarioRepository;
-
         public TipoUsuarioController(ITipoUsuarioRepository tipoUsuarioRepository)
         {
             _tipoUsuarioRepository = tipoUsuarioRepository;
