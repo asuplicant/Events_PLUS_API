@@ -12,16 +12,16 @@ using Projeto_Event_Plus.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configuração do Azure Content Safety.
-var endpoint = builder.Configuration["AzureContentSafety.Endpoint"];
-var apiKey = builder.Configuration["AzureContentSafety.ApiKey"];
+//var endpoint = builder.Configuration["https://moderatorservicelaura.cognitiveservices.azure.com/"];
+//var apiKey = builder.Configuration["DWq7MWkbf34hJdem9r7RatKwj21oHCLKnjQ8pt4N8SJaAWATEWBrJQQJ99BDACYeBjFXJ3w3AAAHACOGKcUY"];
 
-if(string.IsNullOrEmpty(endpoint) || string.IsNullOrEmpty(apiKey))
-    {
-    throw new InvalidOperationException("Azure Content Safety: Endpoint ou API Key não foram configurados.");
-    }
+//if(string.IsNullOrEmpty(endpoint) || string.IsNullOrEmpty(apiKey))
+//    {
+//    throw new InvalidOperationException("Azure Content Safety: Endpoint ou API Key não foram configurados.");
+//    }
 
-var client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
-builder.Services.AddSingleton(client);
+//var client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
+//builder.Services.AddSingleton(client);
 
 builder.Services // Acessa a coleção de serviços da aplicação (Dependency Injection)
     .AddControllers() // Adiciona suporte a controladores na API (MVC ou Web API)
@@ -60,16 +60,22 @@ builder.Services.AddAuthentication(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
+        // Valida quem está solicitando.
         ValidateIssuer = true,
 
+        // Valida quem está recebendo.
         ValidateAudience = true,
 
+        // Define se o tempo de expiração será validado.
         ValidateLifetime = true,
 
+        // Forma de criptografia que valida a chave de autenticação.
         IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Projeto_Event_Plus-chave-autenticacao-Projeto_Event_Plus")),
 
+        // Valida o tempo de expiração do Token.
         ClockSkew = TimeSpan.FromMinutes(5),
 
+        // Valida de onde está vindo.
         ValidIssuer = "Projeto_Event_Plus",
 
         ValidAudience = "Projeto_Event_Plus"
@@ -99,12 +105,13 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 
+    // using System.Refletion
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 
 
 
-    //Usando a autenticaçao no Swagger
+    // Usando a autenticação no Swagger
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
         Name = "Authorization",
@@ -142,6 +149,13 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyMethod();
         });
+});
+
+builder.Services.AddSingleton(provider => new ContentModeratorClient(
+    new ApiKeyServiceClientCredentials("DWq7MWkbf34hJdem9r7RatKwj21oHCLKnjQ8pt4N8SJaAWATEWBrJQQJ99BDACYeBjFXJ3w3AAAHACOGKcUY"))
+{
+    Endpoint = "https://moderatorservicelaura.cognitiveservices.azure.com/"
+
 });
 
 var app = builder.Build();

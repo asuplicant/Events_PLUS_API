@@ -16,7 +16,7 @@ namespace Projeto_Event_Plus.Controllers
             _tipoUsuarioRepository = tipoUsuarioRepository;
         }
 
-
+        
         //-----------------------------------------------------
         // Listar Tipo Usuario
         [HttpGet]
@@ -24,14 +24,14 @@ namespace Projeto_Event_Plus.Controllers
         {
             try
             {
-                List<TipoUsuario> listaDeTiposUsuario = _tipoUsuarioRepository.Listar();
-
-                return Ok(listaDeTiposUsuario);
+                return Ok(_tipoUsuarioRepository.Listar());
             }
             catch (Exception e)
             {
+
                 return BadRequest(e.Message);
             }
+
         }
 
         //-----------------------------------------------------

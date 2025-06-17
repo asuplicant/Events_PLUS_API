@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ExMCP8WhcUA=",
+  "dgSpecHash": "hj1iS++q6mQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\52233446852\\Desktop\\Events_Plus\\Projeto_Event_Plus.csproj",
+  "projectFilePath": "C:\\Users\\52233446852\\Desktop\\Events_PLUS_API\\Projeto_Event_Plus.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\52233446852\\.nuget\\packages\\azure.ai.contentsafety\\1.0.0\\azure.ai.contentsafety.1.0.0.nupkg.sha512",
     "C:\\Users\\52233446852\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

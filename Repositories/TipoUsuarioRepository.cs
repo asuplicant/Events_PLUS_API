@@ -13,6 +13,8 @@ namespace Projeto_Event_Plus.Repositories
             _context = context;
         }
 
+        //---------------------------------------------
+        // Atualizar Tipo Usuário.
         public void Atualizar(Guid id, TipoUsuario tipoUsuario)
         {
             try
@@ -34,6 +36,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //---------------------------------------------
+        // Buscar Por ID
         public TipoUsuario BuscarPorID(Guid id)
         {
             try
@@ -46,6 +50,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //---------------------------------------------
+        // Cadastrar Tipo Usuário
         public void Cadastrar(TipoUsuario novoTipoUsuario)
         {
             try
@@ -62,6 +68,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //---------------------------------------------
+        // Deletar Tipo Usuário
         public void Deletar(Guid id)
         {
             try
@@ -81,6 +89,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //---------------------------------------------
+        // Listar Tipo Usuário
         public List<TipoUsuario> Listar()
         {
             try

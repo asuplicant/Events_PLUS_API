@@ -9,13 +9,13 @@ namespace Projeto_Event_Plus.Domains
         [Key]
         public Guid IdEvento { get; set; }
 
-        [Column(TypeName = "VARCHAR(100)")]
-        [Required(ErrorMessage = "O nome do evento é obrigatório!")]
-        public string? NomeEvento { get; set; }
-
         [Column(TypeName = "DATE")]
         [Required(ErrorMessage = "A data do evento é obrigatório!")]
         public DateTime? DataEvento { get; set; }
+
+        [Column(TypeName = "VARCHAR(100)")]
+        [Required(ErrorMessage = "O nome do evento é obrigatório!")]
+        public string? NomeEvento { get; set; }
 
         [Column(TypeName = "TEXT")]
         [Required(ErrorMessage = "A data do evento é obrigatório!")]

@@ -18,8 +18,8 @@ namespace Projeto_Event_Plus.Controllers
 
         //-----------------------------------------------------
         // Listar Evento
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("ListarPorId/{id}")]
+        public IActionResult GetById(Guid id)
         {
             try
             {
@@ -87,7 +87,7 @@ namespace Projeto_Event_Plus.Controllers
         //-----------------------------------------------------
         // Buscar Por ID
         [HttpGet("BuscarPorId/{id}")]
-        public IActionResult GetById(Guid id)
+        public IActionResult GetBy(Guid id)
         {
             try
             {
@@ -110,7 +110,7 @@ namespace Projeto_Event_Plus.Controllers
             try
             {
                 List<Evento> listaProximoEventos = _eventoRepository.ListarProximosEventos();
-                
+
                 return Ok(listaProximoEventos);
             }
             catch (Exception e)

@@ -15,7 +15,6 @@ namespace Projeto_Event_Plus.Controllers
             _tipoEventoRepository = tipoEventoRepository;
         }
 
-
         //-----------------------------------------------------
         // Listar Tipo Evento
         [HttpGet]

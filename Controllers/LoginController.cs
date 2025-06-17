@@ -72,7 +72,7 @@ namespace Projeto_Event_Plus.Controllers
                     signingCredentials: creds
                 );
 
-                //retorna o token criado
+                // Retorna o TOKEN criado.
                 return Ok(
                     new
                     {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\52233446852\\Desktop\\Events_Plus\\Projeto_Event_Plus.csproj": {}
+    "C:\\Users\\52233446852\\Desktop\\Events_PLUS_API\\Projeto_Event_Plus.csproj": {}
   },
   "projects": {
-    "C:\\Users\\52233446852\\Desktop\\Events_Plus\\Projeto_Event_Plus.csproj": {
+    "C:\\Users\\52233446852\\Desktop\\Events_PLUS_API\\Projeto_Event_Plus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\52233446852\\Desktop\\Events_Plus\\Projeto_Event_Plus.csproj",
+        "projectUniqueName": "C:\\Users\\52233446852\\Desktop\\Events_PLUS_API\\Projeto_Event_Plus.csproj",
         "projectName": "Projeto_Event_Plus",
-        "projectPath": "C:\\Users\\52233446852\\Desktop\\Events_Plus\\Projeto_Event_Plus.csproj",
+        "projectPath": "C:\\Users\\52233446852\\Desktop\\Events_PLUS_API\\Projeto_Event_Plus.csproj",
         "packagesPath": "C:\\Users\\52233446852\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\52233446852\\Desktop\\Events_Plus\\obj\\",
+        "outputPath": "C:\\Users\\52233446852\\Desktop\\Events_PLUS_API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

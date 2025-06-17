@@ -16,7 +16,7 @@ namespace Projeto_Event_Plus.Controllers
         }
 
         //-----------------------------------------------------
-        // Cadastrar Presenca Evento
+        // Cadastrar Presença Evento
         [HttpPost]
         public IActionResult Post(PresencaEvento evento)
         {
@@ -33,7 +33,7 @@ namespace Projeto_Event_Plus.Controllers
         }
 
         //-----------------------------------------------------
-        // Listar Presenca Evento
+        // Listar Presença Evento
         [HttpGet]
         public IActionResult Get()
         {
@@ -50,7 +50,7 @@ namespace Projeto_Event_Plus.Controllers
         }
 
         //-----------------------------------------------------
-        // Deletar Presenca Evento
+        // Deletar Presença Evento
         [HttpDelete]
         public IActionResult Deletar(Guid id)
         {

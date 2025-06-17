@@ -13,6 +13,8 @@ namespace Projeto_Event_Plus.Repositories
             _context = context;
         }
 
+        //---------------------------------------------
+        // Atualizar Tipo Evento
         public void Atualizar(Guid id, TipoEvento tipoEventos)
         {
             try
@@ -34,6 +36,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //---------------------------------------------
+        // Buscar por Id.
         public TipoEvento BuscarPorId(Guid id)
         {
             try
@@ -46,6 +50,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //---------------------------------------------
+        // Cadastrar Tipo Evento
         public void Cadastrar(TipoEvento tipoEventos)
         {
             try
@@ -62,6 +68,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //---------------------------------------------
+        // Deletar Tipo Evento
         public void Deletar(Guid id)
         {
             try
@@ -81,6 +89,8 @@ namespace Projeto_Event_Plus.Repositories
             }
         }
 
+        //---------------------------------------------
+        // Listar Tipo Evento
         public List<TipoEvento> Listar()
         {
             try

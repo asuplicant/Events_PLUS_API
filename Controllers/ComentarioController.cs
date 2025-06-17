@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Azure.AI.ContentSafety;
 using Azure;
 using Projeto_Event_Plus.Repositories;
+using Projeto_Event_Plus.Context;
 
 namespace Projeto_Event_Plus.Controllers
 {
@@ -14,20 +15,86 @@ namespace Projeto_Event_Plus.Controllers
     {
         private readonly IComentarioRepository _comentarioRepository;
         private readonly ContentSafetyClient _contentSafetyClient;
-        public ComentarioController(ContentSafetyClient contentSafetyClient, IComentarioRepository comentarioRepository)
+        private readonly IComentarioRepository comentarioRepository;
+        private readonly EventPlus_Context _contexto;
+
+        public ComentarioController(ContentSafetyClient contentSafetyClient, IComentarioRepository comentarioRepository, EventPlus_Context contexto)
+
+
         {
             _comentarioRepository = comentarioRepository;
             _contentSafetyClient = contentSafetyClient;
+            _contexto = contexto;
         }
 
         //-----------------------------------------------------
-        // Cadastrar Comentario Evento
+        // Listar Comentário.
+        [HttpGet]
+        public IActionResult Get(Guid id)
+        {
+            try
+            {
+                return Ok(_comentarioRepository.Listar(id));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        //-----------------------------------------------------
+        // Listar Somente Exibe.
+        [HttpGet("ListarSomenteExibe")]
+        public IActionResult GetExibe(Guid id)
+        {
+            try
+            {
+                return Ok(_comentarioRepository.ListarSomenteExibe(id));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        //-----------------------------------------------------
+        // Deletar 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(Guid id)
+        {
+            try
+            {
+                _comentarioRepository.Deletar(id);
+
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        //-----------------------------------------------------
+        // Cadastrar Comentário Evento
         [HttpPost]
         public async Task<IActionResult> Post(ComentarioEvento comentario)
         {
             try
             {
-                if(string.IsNullOrEmpty(comentario.Descricao))
+                Evento? eventoBuscado = _contexto.Eventos.FirstOrDefault(e => e.IdEvento == comentario.IdEvento);
+
+                if (eventoBuscado == null)
+                {
+                    return NotFound("Evento não encontrado!");
+                }
+                if (eventoBuscado.DataEvento >= DateTime.UtcNow)
+                {
+                    return BadRequest("Não é possível comentar um evento que ainda não aconteceu.");
+                }
+
+                if (string.IsNullOrEmpty(comentario.Descricao))
                 {
                     return BadRequest("O texto a ser moderado não pode estar vazio!");
                 }
@@ -39,7 +106,7 @@ namespace Projeto_Event_Plus.Controllers
                 Response<AnalyzeTextResult> response = await _contentSafetyClient.AnalyzeTextAsync(request);
 
                 // Verificar se o texto analisado tem alguma severidade.
-                bool temConteudoImproprio = response.Value.CategoriesAnalysis.Any(c => c.Severity > 0); 
+                bool temConteudoImproprio = response.Value.CategoriesAnalysis.Any(c => c.Severity > 0);
                 // true
 
                 // Se o comentário foi impróprio, não exibe. Caso contrário, exibirá.
@@ -56,5 +123,24 @@ namespace Projeto_Event_Plus.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        //-----------------------------------------------------    
+        //Buscar Por Id do Usuário.
+        [HttpGet("BuscarPorIdUsuario")]
+            public IActionResult GetByIdUser(Guid idUsuario, Guid idEvento)
+            {
+                try
+                {
+                    return Ok(_comentarioRepository.BuscarPorIdUsuario(idUsuario, idEvento));
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+
+        }
     }
-}
+
+

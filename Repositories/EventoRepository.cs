@@ -41,19 +41,19 @@ namespace Projeto_Event_Plus.Repositories
 
         //-----------------------------------------------------
         // Cadastrar Evento
-        public void Cadastrar(Evento novoEvento)
+        public void Cadastrar(Evento evento)
         {
             try
             {
                 // Verifica se a data do evento é maior que a data atual
-                if (novoEvento.DataEvento < DateTime.Now)
+                if (evento.DataEvento < DateTime.Now)
                 {
                     throw new ArgumentException("A data do evento deve ser maior ou igual a data atual.");
                 }
 
-                novoEvento.IdEvento = Guid.NewGuid();
+                evento.IdEvento = Guid.NewGuid();
 
-                _context.Eventos.Add(novoEvento);
+                _context.Eventos.Add(evento);
 
                 _context.SaveChanges();
             }
